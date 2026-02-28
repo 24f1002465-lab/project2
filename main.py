@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-app = FastAPI()
+app = FastAPI(docs_url="/docs", redoc_url="/redoc")
 
 # Home route so Render doesn't show "Not Found"
 @app.get("/")
@@ -43,4 +43,5 @@ async def analyze_comment(data: CommentRequest):
     return {
         "sentiment": sentiment,
         "rating": rating
+
     }
